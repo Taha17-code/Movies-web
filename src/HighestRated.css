@@ -1,0 +1,114 @@
+
+.titleP{
+   
+    margin-right: 20px;
+    padding: 20px;
+
+ }
+
+
+
+.FatherFlex{
+    display: flex;
+    position: relative;
+    /* justify-content: space-around; */
+    align-items:center ;
+  
+    /* flex-direction:column; */
+
+}
+
+.childFlex{
+  
+    flex-shrink: 0;
+    max-width: 250px;
+    min-width: 250px;
+    min-height: 300px;
+    max-height: 300px;
+    margin: 15px 0px;
+    background-color: #141414;
+ 
+}
+
+.childFlex img{
+    height: 100%;
+}
+
+
+
+.card__overlay{
+ 
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.47);
+    color: rgba(245, 245, 245, 0.155);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition:  0.5s;
+    
+    /* visibility: hidden; */
+}
+
+
+.card__overlay:hover {
+
+    opacity: 1;
+    backdrop-filter: blur(5px);
+}
+
+.card__overlay > * {
+
+    transform: translateY(20px);
+    transition: 0.5s;
+
+
+}
+
+.card__overlay:hover > *{
+
+    transform: translateY(0px);
+}
+
+
+.arrowScroll{
+     /* background-color: #2fecd8; */
+     color:whitesmoke;
+     border-radius:100%;
+     margin: 5px;
+     cursor: pointer;
+}
+
+
+.arrowScroll:hover{
+   
+    transform: scale(1.2);
+    transition: 0.5s;
+
+}
+
+.ParentBoxes{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 0px auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+  
+    
+  
+}
+
+.overlay__text p{
+    word-wrap: break-word;
+    white-space: pre-line;
+}

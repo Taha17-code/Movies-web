@@ -1,0 +1,9 @@
+.StyleItem{
+    color: whitesmoke;
+    background-color: #414141;
+}
+
+.activeStyle{
+    color:#414141 ;
+    background-color: whitesmoke;
+}

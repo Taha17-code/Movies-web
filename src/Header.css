@@ -1,0 +1,32 @@
+.bgColor{
+    background-color: #141414;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  
+}
+
+#Logoimage{
+    width: 80px;
+    margin-right: 20px;
+  }
+
+  #NavToggle{
+    width: 40px;
+    margin-right: 20px;
+  }
+
+  #SearchBtn{
+
+    background-color: #2fecd8;
+    color: #3b3a3a;
+    margin: 0px 10px;
+  }
+
+  #backgroundImage{
+    height: 500px;
+    width: 100%;
+    opacity: 0.4;
+    backdrop-filter: blur(150px);
+    background-color: #141414;
+  }

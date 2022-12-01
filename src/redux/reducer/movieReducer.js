@@ -2,14 +2,14 @@
 
 import {allMovies} from '../types/MoviesType'
 
- const initialValue={movies:[],pageCount:0}
+
 // 2- Create Reducer
-export const moviesReducer=(state=initialValue,actions)=>{
+export const moviesReducer=(state={movies:[],pageC:0},actions)=>{
    
      switch(actions.type){
 
         case allMovies :
-            return{movies:actions.data}
+            return{movies:actions.data,pageC:actions.pages}
 
         default:
             return state;

@@ -11,10 +11,12 @@ const MovieDetails = () => {
 
 const[movieDetails,movieDetailsState]=useState([]);
   const parm=useParams();
+  console.log(parm)
 
   const GetMovieDetails =async()=>{
-    const movie= await axios.get(`https://api.themoviedb.org/3/movie/${parm}?api_key=a3bc77df23b1530fd313b52e56d03260&language=ar`)
+    const movie= await axios.get(`https://api.themoviedb.org/3/movie/${parm.id}?api_key=e5640f9ce1f851438fa483aede2abba8&language=ar`)
     movieDetailsState(movie.data);
+    console.log(movie.data ,"movie details ")
   }
   
   // to run when component create

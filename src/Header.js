@@ -4,21 +4,51 @@ import {NavDropdown,Navbar,Nav,Form,Container,Button, NavLink} from 'react-boots
 import './Header.css';
 import menu  from './images/menu.png';
 import MoviesLogo from './images/MoviesLogo.png'
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { GetAllMovies, GetMoviesSearch } from './redux/action/MoviesActions';
 
-function NavScroll({OnSearch}) {
+function NavScroll() {
+  
+  const [PageCount,PageCountState]= useState(0);
+
+  const dispatch=useDispatch();
+
   
 
+  // =====================Seacrch API filter =========================
 
+  const OnSearch= async (Result)=>{
+   
+    if(Result===""||Result===" "){
+      dispatch(GetAllMovies());
+      // console.log(TopRated.data.results)
+     
+     PageCountState(GetMoviesSearch(Result));
+      console.log(PageCount);
+    }
+    else{
+      dispatch(GetMoviesSearch(Result))
+      // console.log(TopRated.data.results)
+     
+      // PageCountState(PopularVar.data.total_pages);
+
+    }
+
+
+   
+  }
+  
+//================================= On change ===========================
   
   const Search=(SearchResult)=>{
     // e.preventDefault()
     OnSearch(SearchResult);
   
     window.scrollTo(0, 500);
-    
-  
-    // 
+   
   }
+
   return (
 
   

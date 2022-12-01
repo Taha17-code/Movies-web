@@ -1,13 +1,44 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import {Pagination} from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
+import { useDispatch, useSelector } from 'react-redux';
 import './PaginationPage.css'
-function PaginationPage({GetPageNum , PageCount}) {
+import {  GetPageNum } from './redux/action/MoviesActions';
+import {} from './redux/reducer/movieReducer'
+function PaginationPage() {
 
-  console.log(PageCount)
+  const [PageCounter,PageCountState]= useState(0);
+  const dispatch=useDispatch();
+  const dataSelector=useSelector(state=>{
+    // console.log(state,'why');
+    return state.pageC;
+  })
+   
+    
+  
+  // console.log(PageCounter)
+  
+
+  
+useEffect(()=>{
+  PageCountState(dataSelector);
+}, [dataSelector])
+
+
+  const GetPageNumber=(pageNum)=>{ 
+
+    dispatch(GetPageNum(pageNum))
+    
+
+  }
+
+
+
   const handlePageClick=(data)=>{
-
+   
     console.log(data.selected+1)
-    GetPageNum(data.selected+1)
+    GetPageNumber(data.selected+1)
 
   }
 
@@ -19,7 +50,7 @@ function PaginationPage({GetPageNum , PageCount}) {
       onPageChange={handlePageClick}
       marginPagesDisplayed={3}
       pageRangeDisplayed={3}
-      pageCount={PageCount}
+      pageCount={PageCounter}
       previousLabel="< السابق"
       
 

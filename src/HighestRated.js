@@ -1,10 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Row ,Col } from 'react-bootstrap'
 import './HighestRated.css';
 import { MdArrowRight,MdArrowLeft } from "react-icons/md";
+import axios from 'axios';
 
 
-const HighestRated = ({TopRated}) => {
+const HighestRated = () => {
+
+
+  const [TopRated,TopRatedState]= useState([]);
+
+  
+  useEffect(()=>{
+
+   
+    GetTopRated();
+    // 
+    
+  },[])
+
+
+//Get Top rated movies
+  const GetTopRated= async ()=>{
+    const TopRated= await axios.get('https://api.themoviedb.org/3/movie/top_rated?api_key=a3bc77df23b1530fd313b52e56d03260&language=ar&page=1')
+    // console.log(TopRated.data.results)
+    TopRatedState(TopRated.data.results)
+   
+    
+    // console.log(TopRated.data.results)
+  }
+
+
+
+
   // console.log(TopRated);
 const MoveRight=()=>{
   let slide=document.getElementById('Slider');

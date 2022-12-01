@@ -1,12 +1,38 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
-
+import NotFound from './images/error-404.png'
 // import { Row,Col, Card } from 'react-bootstrap'
 import './MoviesDisply.css'
 import PaginationPage from './PaginationPage'
+import { GetAllMovies } from './redux/action/MoviesActions'
 
 
-const MoviesDisply = ({Popular,GetPageNum,PageCount}) => {
+const MoviesDisply = () => {
+
+
+
+  const [Popular,popularState]= useState([]);
+
+     // Get most Popular movies
+     const dataSelector=useSelector((state)=>state.movies)
+     
+
+
+  const dispatch=useDispatch();
+
+  
+  useEffect(()=>{
+    dispatch(GetAllMovies());
+
+    
+  },[])
+
+
+  useEffect(()=>{  
+    popularState(dataSelector)
+  },[dataSelector])
+  
 
 
   return (
@@ -25,7 +51,7 @@ const MoviesDisply = ({Popular,GetPageNum,PageCount}) => {
 
         return(<div   className='card mx-4   chidlFlex' key={key}>
         
-        <img src={'https://image.tmdb.org/t/p/w500/'+item.poster_path} className='AllMoviesImage' alt='not found' />
+        <img src={'https://image.tmdb.org/t/p/w500/'+item.poster_path} className='AllMoviesImage' alt='./images/error-404.png' />
         <Link to={`/MovieDetails/${item.id}`} >
         <div className='card__overlay'>
         <div className='overlay__text text-center w-100 p-2'>
@@ -51,7 +77,7 @@ const MoviesDisply = ({Popular,GetPageNum,PageCount}) => {
     </div>
 
 
-{Popular.length>=1?( <PaginationPage  GetPageNum={GetPageNum}  PageCount={PageCount}/>):null}
+{Popular.length>=1?( <PaginationPage />):null}
    
 
 

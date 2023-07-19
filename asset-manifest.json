@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Movies-web/static/css/main.c0ff519d.css",
+    "main.js": "/Movies-web/static/js/main.515da74b.js",
+    "static/media/MoviesLogo.png": "/Movies-web/static/media/MoviesLogo.7f59cc746c94f4fc2c8c.png",
+    "static/media/error-404.png": "/Movies-web/static/media/error-404.114cc84c318964a05126.png",
+    "index.html": "/Movies-web/index.html",
+    "main.c0ff519d.css.map": "/Movies-web/static/css/main.c0ff519d.css.map",
+    "main.515da74b.js.map": "/Movies-web/static/js/main.515da74b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0ff519d.css",
+    "static/js/main.515da74b.js"
+  ]
+}
